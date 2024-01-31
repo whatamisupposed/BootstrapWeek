@@ -1,14 +1,10 @@
-
-
-body {
-    
+body {  
 background-image: url(brown.jpg);
 background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     margin: 0;
 }
-
 .topText {
     justify-content: center;
     align-items: center;
@@ -17,7 +13,6 @@ background-size: cover;
     hr {
         width: 50%;
         height: 0;
-       
         border: 1px solid gold; 
     }
     h1 {
@@ -44,7 +39,6 @@ background-size: cover;
     color: white;
     text-align: center;
 }
-
 .btn-primary {
     margin-top: 20px; 
     background-color: gold;
@@ -58,44 +52,6 @@ background-size: cover;
 .btn-primary:hover {
     background-color: rgb(179, 152, 0); 
 }
-@media only screen and (max-width: 768px) {
-    .topText h1 {
-        font-size: 30px;
-    }
-
-    .topText h2 {
-        font-size: 50px;
-    }
-
-    .topText h3 {
-        font-size: 40px;
-    }
-
-    .btn-primary {
-        padding: 12px 24px;
-        font-size: 16px;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .topText h1 {
-        font-size: 25px;
-    }
-
-    .topText h2 {
-        font-size: 40px;
-    }
-
-    .topText h3 {
-        font-size: 30px;
-    }
-
-    .btn-primary {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
-
 .purple {
     color: gold;
 }
@@ -123,16 +79,24 @@ background-size: cover;
     font-size: 25px;
     margin-top: -10px;
 }
-
+.box {
+    background-color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    border: 2px solid gold;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    color: black;
+    text-shadow: -3px 3px 3px rgba(255, 215, 0, 0.7);
+}
 .box img {
     height: auto;
     width: 40px;
     color: white;
-    border-radius: 50%; 
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     margin-bottom: 10px;
 }
-
 .navbar {
     font-size: 20px;
     top: 0;
@@ -141,35 +105,47 @@ background-size: cover;
     overflow: hidden;
     height: 80px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Center the items horizontally */
     align-items: center;
-    padding-bottom: 30px;
+    position: relative; /* Add position relative for absolute positioning of the gold line */
 }
-
 .navbar a {
-float: left;
+    float: left;
     display: flex;
     flex-direction: row;
-    
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    border: 2px solid gold;
+    border: 2px solid transparent; /* Set border color to transparent initially */
+    position: relative; /* Add position relative for absolute positioning of the gold line */
 }
-
+.navbar a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Set the height of the gold line */
+    background-color: gold; /* Set the color of the gold line */
+    transform: scaleX(0); /* Initially make the line invisible */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+.navbar a:hover::after {
+    transform: scaleX(1); /* On hover, make the gold line visible */
+}
 .navbar a:hover {
-    background-color: #ddd;
+    background-color: gold;
     color: black;
     border-color: rgb(179, 152, 0);
 }
-
 @media (max-width: 600px) {
     .navbar {
         flex-direction: column; 
         height: auto; 
     }
-
     .navbar a {
         width: 100%; 
         margin-bottom: 5px; 
